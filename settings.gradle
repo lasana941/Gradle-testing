@@ -1,0 +1,3 @@
+rootProject.name = 'code-testing'
+include 'k-testing'
+
