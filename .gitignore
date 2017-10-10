@@ -1,3 +1,7 @@
-'.idea' 
-'out' 
-'*.iml' 
+*.idea
+out
+*.iml
+.gradle
+build
+/.idea/workspace.xml
+/.idea/libraries
