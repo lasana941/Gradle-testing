@@ -1,7 +1,5 @@
-.idea
-*.iml
-build
 .gradle
+build
 
 # Created by https://www.gitignore.io/api/intellij
 
