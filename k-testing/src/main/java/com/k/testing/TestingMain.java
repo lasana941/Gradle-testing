@@ -21,6 +21,7 @@ public class TestingMain {
         int i = 0;
         int a;
         int b;
+
         while(i < 10) {
             a = generator.nextInt(10) + 1;
             b = generator.nextInt(10) + 1;
