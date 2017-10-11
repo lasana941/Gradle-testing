@@ -19,9 +19,11 @@ public class TestingMain {
         Calculator calc = new Calculator();
         Random generator = new Random();
         int i = 0;
+        int a;
+        int b;
         while(i < 10) {
-            int a = generator.nextInt(10) + 1;
-            int b = generator.nextInt(10) + 1;
+            a = generator.nextInt(10) + 1;
+            b = generator.nextInt(10) + 1;
             if (calc.add(a, b) != a + b) {
                 System.out.println("Sum: " + a + " and " + b + " is not: " + calc.add(a, b));
             }else {
@@ -31,8 +33,8 @@ public class TestingMain {
         }
         i = 0;
         while(i < 10) {
-            int a = generator.nextInt(10) + 1;
-            int b = generator.nextInt(10) + 1;
+            a = generator.nextInt(10) + 1;
+            b = generator.nextInt(10) + 1;
             if (calc.subtract(a, b) != a - b) {
                 System.out.println("Difference: " + a + " and " + b + " is not: " + calc.subtract(a, b));
             }else {

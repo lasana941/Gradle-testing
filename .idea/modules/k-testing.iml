@@ -4,7 +4,6 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../k-testing">
       <sourceFolder url="file://$MODULE_DIR$/../../k-testing/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../k-testing/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../k-testing/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../k-testing/build" />
       <excludeFolder url="file://$MODULE_DIR$/../../k-testing/out" />
