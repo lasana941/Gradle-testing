@@ -29,10 +29,14 @@ public class CollectionTestSuite {
         @Test
         public void testOddNumbersExterminatorEmptyList(){
             //Given
+                //List<Integer> even = new ArrayList<>();
             ArrayList<Integer> even = new ArrayList<>();
             List<Integer> results = new ArrayList<>();
             //When
+                // to jest ciągle given
             OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+                
+                // dopiero to jest when (when = kiedy wywolasz)
             results = oddNumbersExterminator.exterminate(even);
             //Then
             for (Integer obj : results) {
@@ -43,6 +47,7 @@ public class CollectionTestSuite {
         @Test
         public void testOddNumbersExterminatorNormalList(){
             //Given
+                //List<Integer> even = new ArrayList<>();
             ArrayList<Integer> even = new ArrayList<>();
             Random r = new Random();
             int i = 0;
@@ -52,7 +57,9 @@ public class CollectionTestSuite {
             }
             List<Integer> results = new ArrayList<>();
             //When
+                // to do given
             OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+                //to dopiero when
             results = oddNumbersExterminator.exterminate(even);
             //Then
             for (Integer obj : results) {
