@@ -31,8 +31,8 @@ public class CollectionTestSuite {
             //Given
             ArrayList<Integer> even = new ArrayList<>();
             List<Integer> results = new ArrayList<>();
-            //When
             OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+            //When
             results = oddNumbersExterminator.exterminate(even);
             //Then
             for (Integer obj : results) {
@@ -44,20 +44,20 @@ public class CollectionTestSuite {
         public void testOddNumbersExterminatorNormalList(){
             //Given
             ArrayList<Integer> even = new ArrayList<>();
+            OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
             Random r = new Random();
-            int i = 0;
-            while (i < 10){
+            int test_Sample_Size = 10;
+            while (even.size() < test_Sample_Size){
                 even.add(r.nextInt(16) + 1);
-                i++;
             }
+            System.out.println(even + " Full list, size: " + even.size() );
             List<Integer> results = new ArrayList<>();
             //When
-            OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
             results = oddNumbersExterminator.exterminate(even);
             //Then
             for (Integer obj : results) {
                 Assert.assertTrue("You did wrong.",obj %2 == 0);
             }
-            System.out.println(results);
+            System.out.println(results + " End result." );
         }
 }
