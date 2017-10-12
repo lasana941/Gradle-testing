@@ -44,16 +44,21 @@ public class CollectionTestSuite {
         public void testOddNumbersExterminatorNormalList(){
             //Given
             ArrayList<Integer> even = new ArrayList<>();
-            OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+            List<Integer> results = new ArrayList<>();
             Random r = new Random();
+
+            OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+
             int test_Sample_Size = 10;
+
             while (even.size() < test_Sample_Size){
                 even.add(r.nextInt(16) + 1);
             }
             System.out.println(even + " Full list, size: " + even.size() );
-            List<Integer> results = new ArrayList<>();
+
             //When
             results = oddNumbersExterminator.exterminate(even);
+
             //Then
             for (Integer obj : results) {
                 Assert.assertTrue("You did wrong.",obj %2 == 0);
