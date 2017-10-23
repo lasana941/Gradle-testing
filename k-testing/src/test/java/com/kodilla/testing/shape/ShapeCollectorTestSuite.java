@@ -4,6 +4,8 @@ import org.junit.*;
 
 import java.util.Random;
 
+import static java.lang.Math.round;
+
 public class ShapeCollectorTestSuite {
 
     private static int testCounter = 0;
@@ -72,9 +74,11 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Random rand = new Random();
-        Double x = rand.nextDouble() * 100;
-        Double y = rand.nextDouble() * 100;
-        double field = x*y;
+        Double x = round(rand.nextDouble() * 10000.0)/100.0;
+        System.out.println("X :" + x);
+        Double y = round(rand.nextDouble() * 10000.0)/100.0;
+        System.out.println("Y :" + y);
+        Double field = x*y;
 
         //Shape shape = new Shape("circle", 7.1);
         shapeCollector.addFigure(new Square("Sq" , x , y));
