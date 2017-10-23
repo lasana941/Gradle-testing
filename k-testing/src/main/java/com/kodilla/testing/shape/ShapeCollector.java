@@ -3,10 +3,8 @@ package com.kodilla.testing.shape;
 import java.util.ArrayList;
 
 public class ShapeCollector {
-    ArrayList<Shape> figure = new ArrayList<>();
-    String circle = "circle";
-    String square = "square";
-    String triangle = "triangle";
+    private ArrayList<Shape> figure = new ArrayList<>();
+
     public boolean addFigure(Shape shape) {
         if(!shape.getShapeName().equals(square)
                 && !shape.getShapeName().equals(triangle)
