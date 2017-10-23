@@ -1,14 +1,13 @@
 package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ShapeCollector {
-    private ArrayList<Shape> figure = new ArrayList<>();
+    private List<Shape> figure = new ArrayList<>();
 
     public boolean addFigure(Shape shape) {
-        if(!shape.getShapeName().equals(square)
-                && !shape.getShapeName().equals(triangle)
-                && !shape.getShapeName().equals(circle)){
+        if(shape == null){
             return false;
         }
         System.out.println(shape.getShapeName());

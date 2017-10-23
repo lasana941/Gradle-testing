@@ -25,37 +25,23 @@ public class ShapeCollectorTestSuite {
     public void testAddFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Shape("circle",7.1);
 
         //When
-        boolean testAdd = shapeCollector.addFigure(shape);
+        boolean testAdd = shapeCollector.addFigure(new Triangle("Tri", 1.1 , 1.1,2.1));
 
         //Then
         Assert.assertEquals(true, testAdd);
     }
     @Test
-    public void testAddFigureOutOfBand() {
-        //Given
-        ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Shape("diamond",7.1);
-
-        //When
-        boolean testAdd = shapeCollector.addFigure(shape);
-
-        //Then
-        Assert.assertEquals(false, testAdd);
-    }
-    @Test
     public void testGetFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Shape("circle",7.1);
-        shapeCollector.addFigure(shape);
+        shapeCollector.addFigure(new Circle("Cir", 1.5));
         //When
         Shape s = shapeCollector.getFigure(0);
 
         //Then
-        Assert.assertEquals("circle", s.getShapeName() );
+        Assert.assertEquals("Cir", s.getShapeName() );
     }
     @Test
     public void testGetFigureEmpty() {
@@ -71,12 +57,24 @@ public class ShapeCollectorTestSuite {
     public void testRemoveFiguree() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Shape("circle", 7.1);
-        shapeCollector.addFigure(shape);
+        //Shape shape = new Shape("circle", 7.1);
+        shapeCollector.addFigure(new Square("Sq" , 5.1 , 6.1));
         //When
-        boolean testPass = shapeCollector.removeFigure(shape);
+        boolean testPass = shapeCollector.removeFigure(new Square("Sq" , 5.1 , 6.1));
 
         //Then
         Assert.assertEquals(true, testPass);
+    }
+    @Test
+    public void testField() {
+        //Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        //Shape shape = new Shape("circle", 7.1);
+        shapeCollector.addFigure(new Square("Sq" , 5.1 , 6.1));
+        //When
+        Shape s = shapeCollector.getFigure(0);
+
+        //Then
+        Assert.assertEquals(31.11 , s.getField() , 0.1);
     }
 }
