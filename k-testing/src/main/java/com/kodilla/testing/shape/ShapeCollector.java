@@ -10,7 +10,7 @@ public class ShapeCollector {
         if(shape == null){
             return false;
         }
-        System.out.println(shape.getShapeName());
+        System.out.println("Shape named: " + shape.getShapeName() + " added to the list.");
         figure.add(shape);
         return true;
     }

@@ -2,6 +2,8 @@ package com.kodilla.testing.shape;
 
 import org.junit.*;
 
+import java.util.Random;
+
 public class ShapeCollectorTestSuite {
 
     private static int testCounter = 0;
@@ -69,12 +71,18 @@ public class ShapeCollectorTestSuite {
     public void testField() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
+        Random rand = new Random();
+        Double x = rand.nextDouble() * 100;
+        Double y = rand.nextDouble() * 100;
+        double field = x*y;
+
         //Shape shape = new Shape("circle", 7.1);
-        shapeCollector.addFigure(new Square("Sq" , 5.1 , 6.1));
+        shapeCollector.addFigure(new Square("Sq" , x , y));
         //When
         Shape s = shapeCollector.getFigure(0);
 
         //Then
-        Assert.assertEquals(31.11 , s.getField() , 0.1);
+        System.out.println("Field given: " + field + " Calculaded: " + s.getField());
+        Assert.assertEquals( field , s.getField() , 0.001);
     }
 }
