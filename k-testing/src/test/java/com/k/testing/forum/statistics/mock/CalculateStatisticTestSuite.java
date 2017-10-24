@@ -13,7 +13,23 @@ import static org.mockito.Mockito.when;
 
 public class CalculateStatisticTestSuite{
     @Test
-    public void testStatisticsWithMock() {
+    public void testCalculateStatisticsWithZeroPostsMock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+        int numbersOfPosts = 0;
+
+        when(statisticsMock.postsCount()).thenReturn(numbersOfPosts);
+
+        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        int quantityOfPosts = calculateStatistics.calculateAdvStatistics();
+
+        //Then
+        Assert.assertEquals(0, quantityOfPosts);
+    }
+    @Test
+    public void testCalculateStatisticsWithUsersMock() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNamesList = new ArrayList<String>();
@@ -33,5 +49,21 @@ public class CalculateStatisticTestSuite{
 
         //Then
         Assert.assertEquals(6, quantityOfUsers);
+    }
+    @Test
+    public void testCalculateStatisticsWithZeroUsersMock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+        List<String> usersNamesList = new ArrayList<String>();
+
+        when(statisticsMock.usersNames()).thenReturn(usersNamesList);
+
+        CalculateStatistics CalcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        int quantityOfUsers = CalcStatistics.calculateAdvStatistics().size();
+
+        //Then
+        Assert.assertEquals(0, quantityOfUsers);
     }
 }

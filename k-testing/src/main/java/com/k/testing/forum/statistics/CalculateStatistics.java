@@ -1,5 +1,6 @@
 package com.k.testing.forum.statistics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CalculateStatistics {
@@ -11,11 +12,12 @@ public class CalculateStatistics {
     public CalculateStatistics(Statistics statistics){
         this.statistics = statistics;
     }
-    public List<String> calculateAdvStatistics(){
-        for (String temp: statistics.usersNames()) {
-            temp;
-        }
+    public List<String> calculateAdvStatistics(Statistics statistics){
+        List<String> resulList = new ArrayList<>();
 
-        return;
+        for (String temp: statistics.usersNames()) {
+            resulList.add(temp);
+        }
+        return resulList;
     }
 }
