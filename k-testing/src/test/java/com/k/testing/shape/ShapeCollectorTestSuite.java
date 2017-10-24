@@ -1,4 +1,4 @@
-package com.kodilla.testing.shape;
+package com.k.testing.shape;
 
 import org.junit.*;
 
@@ -59,8 +59,6 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveFiguree() {
         //Given
-
-        //Shape shape = new Shape("circle", 7.1);
         shapeCollector.addFigure(new Square("Sq" , 5.1 , 6.1));
 
         //When
@@ -79,7 +77,6 @@ public class ShapeCollectorTestSuite {
         System.out.println("Y :" + y);
         Double field = x*y;
 
-        //Shape shape = new Shape("circle", 7.1);
         shapeCollector.addFigure(new Square("Sq" , x , y));
 
         //When

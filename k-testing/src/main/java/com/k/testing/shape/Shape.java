@@ -1,4 +1,4 @@
-package com.kodilla.testing.shape;
+package com.k.testing.shape;
 
 public interface Shape {
     String getShapeName();

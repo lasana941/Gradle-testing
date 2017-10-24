@@ -1,4 +1,4 @@
-package com.kodilla.testing.shape;
+package com.k.testing.shape;
 
 import static java.lang.Math.PI;
 

@@ -1,4 +1,6 @@
-package com.kodilla.testing.shape;
+package com.k.testing.shape;
+
+import com.k.testing.shape.Shape;
 
 import static java.lang.Math.*;
 
