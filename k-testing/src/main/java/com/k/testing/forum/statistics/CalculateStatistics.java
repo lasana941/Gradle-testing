@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CalculateStatistics {
     Statistics statistics;
-    int averagePostsByUser;
+    private int averagePostsByUser;
     int averageCommentsByUser;
     int acerageCommentsByPost;
 
