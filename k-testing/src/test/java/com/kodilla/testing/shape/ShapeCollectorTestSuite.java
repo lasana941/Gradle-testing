@@ -53,7 +53,6 @@ public class ShapeCollectorTestSuite {
 
         //When
 
-
         //Then
         Assert.assertEquals(null, shapeCollector.getFigure(0) );
     }
