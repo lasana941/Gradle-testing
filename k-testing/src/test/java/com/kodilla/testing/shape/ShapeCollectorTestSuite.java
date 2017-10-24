@@ -9,6 +9,7 @@ import static java.lang.Math.round;
 public class ShapeCollectorTestSuite {
 
     private static int testCounter = 0;
+    private ShapeCollector shapeCollector;
 
     @BeforeClass
     public static void beforeAllTests() {
@@ -24,11 +25,11 @@ public class ShapeCollectorTestSuite {
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
+        shapeCollector = new ShapeCollector();
     }
     @Test
     public void testAddFigure() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector();
 
         //When
         boolean testAdd = shapeCollector.addFigure(new Triangle("Tri", 1.1 , 1.1,2.1));
@@ -39,7 +40,6 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetFigure() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(new Circle("Cir", 1.5));
         //When
         Shape s = shapeCollector.getFigure(0);
@@ -50,7 +50,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetFigureEmpty() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector();
+
         //When
 
 
@@ -60,9 +60,10 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveFiguree() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector();
+
         //Shape shape = new Shape("circle", 7.1);
         shapeCollector.addFigure(new Square("Sq" , 5.1 , 6.1));
+
         //When
         boolean testPass = shapeCollector.removeFigure(new Square("Sq" , 5.1 , 6.1));
 
@@ -72,7 +73,6 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testField() {
         //Given
-        ShapeCollector shapeCollector = new ShapeCollector();
         Random rand = new Random();
         Double x = round(rand.nextDouble() * 10000.0)/100.0;
         System.out.println("X :" + x);
@@ -82,6 +82,7 @@ public class ShapeCollectorTestSuite {
 
         //Shape shape = new Shape("circle", 7.1);
         shapeCollector.addFigure(new Square("Sq" , x , y));
+
         //When
         Shape s = shapeCollector.getFigure(0);
 
