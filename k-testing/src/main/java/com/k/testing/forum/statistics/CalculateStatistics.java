@@ -6,8 +6,8 @@ import java.util.List;
 public class CalculateStatistics {
     Statistics statistics;
     private int averagePostsByUser;
-    int averageCommentsByUser;
-    int acerageCommentsByPost;
+    private int averageCommentsByUser;
+    private int acerageCommentsByPost;
 
     public CalculateStatistics(Statistics statistics){
         this.statistics = statistics;
@@ -19,5 +19,16 @@ public class CalculateStatistics {
             resulList.add(temp);
         }
         return resulList;
+    }
+    public int getAveragePostsByUser() {
+        return averagePostsByUser;
+    }
+
+    public int getAverageCommentsByUser() {
+        return averageCommentsByUser;
+    }
+
+    public int getAcerageCommentsByPost() {
+        return acerageCommentsByPost;
     }
 }
