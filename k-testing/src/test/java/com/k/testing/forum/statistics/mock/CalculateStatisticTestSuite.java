@@ -13,6 +13,30 @@ import static org.mockito.Mockito.when;
 
 public class CalculateStatisticTestSuite{
     @Test
+    public void testCalculateStatisticsWithAveragePostsByUserMock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+        List<String> usersNamesList = new ArrayList<String>();
+        usersNamesList.add("Heinrich Otto Abetz");
+        usersNamesList.add("Milan Babić");
+        usersNamesList.add("Pietro Caruso");
+        usersNamesList.add("Kurt Daluege ");
+        usersNamesList.add("Adolf Eichmann ");
+        usersNamesList.add("Miroslav Filipović");
+        int numbersOfPosts = 6;
+
+        when(statisticsMock.postsCount()).thenReturn(numbersOfPosts);
+        when(statisticsMock.usersNames()).thenReturn(usersNamesList);
+
+        CalculateStatistics CalcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        double averagePostsByUser = CalcStatistics.getAveragePostsByUser();
+
+        //Then
+        Assert.assertEquals(1, averagePostsByUser , 0.001);
+    }
+    @Test
     public void testCalculateStatisticsWithThousandCommentsMock() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
