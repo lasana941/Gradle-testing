@@ -13,6 +13,31 @@ import static org.mockito.Mockito.when;
 
 public class CalculateStatisticTestSuite{
     @Test
+    public void testCalculateStatisticsWithAveragePostsByUserPostZeroMock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+        List<String> usersNamesList = new ArrayList<String>();
+        usersNamesList.add("Heinrich Otto Abetz");
+        usersNamesList.add("Milan Babić");
+        usersNamesList.add("Pietro Caruso");
+        usersNamesList.add("Kurt Daluege ");
+        usersNamesList.add("Adolf Eichmann ");
+        usersNamesList.add("Miroslav Filipović");
+        int numbersOfPosts = 0;
+
+        when(statisticsMock.postsCount()).thenReturn(numbersOfPosts);
+        when(statisticsMock.usersNames()).thenReturn(usersNamesList);
+
+        CalculateStatistics calcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        calcStatistics.calculateAdvStatistics(statisticsMock);
+        double averagePostsByUser = calcStatistics.getAveragePostsByUser();
+
+        //Then
+        Assert.assertEquals(0, averagePostsByUser , 0.000001);
+    }
+    @Test
     public void testCalculateStatisticsWithAveragePostsByUserMock() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
@@ -28,10 +53,11 @@ public class CalculateStatisticTestSuite{
         when(statisticsMock.postsCount()).thenReturn(numbersOfPosts);
         when(statisticsMock.usersNames()).thenReturn(usersNamesList);
 
-        CalculateStatistics CalcStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calcStatistics = new CalculateStatistics(statisticsMock);
 
         //When
-        double averagePostsByUser = CalcStatistics.getAveragePostsByUser();
+        calcStatistics.calculateAdvStatistics(statisticsMock);
+        double averagePostsByUser = calcStatistics.getAveragePostsByUser();
 
         //Then
         Assert.assertEquals(1, averagePostsByUser , 0.001);

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CalculateStatistics {
     Statistics statistics;
-    private double averagePostsByUser;
+    private double averagePostsByUser = 0;
     private double averageCommentsByUser;
     private double acerageCommentsByPost;
 
@@ -17,6 +17,9 @@ public class CalculateStatistics {
 
         for (String temp: statistics.usersNames()) {
             resulList.add(temp);
+        }
+
+        if (statistics.postsCount() != 0){
             averagePostsByUser = Double.valueOf(resulList.size()) / Double.valueOf(statistics.postsCount());
         }
         return resulList;
