@@ -6,8 +6,8 @@ import java.util.List;
 public class CalculateStatistics {
     Statistics statistics;
     private double averagePostsByUser = 0;
-    private double averageCommentsByUser;
-    private double acerageCommentsByPost;
+    private double averageCommentsByUser = 0;
+    private double averageCommentsByPost = 0;
 
     public CalculateStatistics(Statistics statistics){
         this.statistics = statistics;
@@ -22,6 +22,12 @@ public class CalculateStatistics {
         if (statistics.postsCount() != 0){
             averagePostsByUser = Double.valueOf(resulList.size()) / Double.valueOf(statistics.postsCount());
         }
+        if(statistics.commentsCount() != 0){
+            averageCommentsByUser = Double.valueOf(resulList.size()) / Double.valueOf(statistics.commentsCount());
+        }
+        if(statistics.commentsCount() != 0){
+            averageCommentsByPost = Double.valueOf(statistics.commentsCount()) / Double.valueOf(statistics.postsCount());
+        }
         return resulList;
     }
     public double getAveragePostsByUser() {
@@ -32,7 +38,7 @@ public class CalculateStatistics {
         return averageCommentsByUser;
     }
 
-    public double getAcerageCommentsByPost() {
-        return acerageCommentsByPost;
+    public double getAverageCommentsByPost() {
+        return averageCommentsByPost;
     }
 }

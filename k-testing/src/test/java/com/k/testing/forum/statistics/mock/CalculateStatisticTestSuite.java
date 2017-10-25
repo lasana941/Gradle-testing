@@ -13,6 +13,136 @@ import static org.mockito.Mockito.when;
 
 public class CalculateStatisticTestSuite{
     @Test
+    public void testCalculateStatisticsWithAverageCommentsByPostMoreCommentsVsPostMock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+
+        int numbersOfComments = 1000;
+        when(statisticsMock.commentsCount()).thenReturn(numbersOfComments);
+
+        int numbersOfPosts = 10;
+        when(statisticsMock.postsCount()).thenReturn(numbersOfPosts);
+
+        CalculateStatistics calcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        calcStatistics.calculateAdvStatistics(statisticsMock);
+        double averageCommentsByPost = calcStatistics.getAverageCommentsByPost();
+
+        //Then
+        Assert.assertEquals(100.0, averageCommentsByPost , 0.000001);
+    }
+    @Test
+    public void testCalculateStatisticsWithAverageCommentsByPostMorePostVsCommentsMock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+
+        int numbersOfComments = 10;
+        when(statisticsMock.commentsCount()).thenReturn(numbersOfComments);
+
+        int numbersOfPosts = 1000;
+        when(statisticsMock.postsCount()).thenReturn(numbersOfPosts);
+
+        CalculateStatistics calcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        calcStatistics.calculateAdvStatistics(statisticsMock);
+        double averageCommentsByPost = calcStatistics.getAverageCommentsByPost();
+
+        //Then
+        Assert.assertEquals(0.01, averageCommentsByPost , 0.000001);
+    }
+    @Test
+    public void testCalculateStatisticsWithAverageCommentsByPost1000Mock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+
+        int numbersOfComments = 1000;
+        when(statisticsMock.commentsCount()).thenReturn(numbersOfComments);
+
+        int numbersOfPosts = 1;
+        when(statisticsMock.postsCount()).thenReturn(numbersOfPosts);
+
+        CalculateStatistics calcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        calcStatistics.calculateAdvStatistics(statisticsMock);
+        double averageCommentsByPost = calcStatistics.getAverageCommentsByPost();
+
+        //Then
+        Assert.assertEquals(1000.0, averageCommentsByPost , 0.000001);
+    }
+    @Test
+    public void testCalculateStatisticsWithAverageCommentsByPost0Mock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+
+        int numbersOfComments = 0;
+        when(statisticsMock.commentsCount()).thenReturn(numbersOfComments);
+
+        int numbersOfPosts = 0;
+        when(statisticsMock.postsCount()).thenReturn(numbersOfPosts);
+
+        CalculateStatistics calcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        calcStatistics.calculateAdvStatistics(statisticsMock);
+        double averageCommentsByUser = calcStatistics.getAverageCommentsByUser();
+
+        //Then
+        Assert.assertEquals(0.0, averageCommentsByUser , 0.000001);
+    }
+    @Test
+    public void testCalculateStatisticsWithAverageCommentsByUser1000Mock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+        List<String> usersNamesList = new ArrayList<String>();
+        usersNamesList.add("Heinrich Otto Abetz");
+        usersNamesList.add("Milan Babić");
+        usersNamesList.add("Pietro Caruso");
+        usersNamesList.add("Kurt Daluege ");
+        usersNamesList.add("Adolf Eichmann ");
+        usersNamesList.add("Miroslav Filipović");
+        int numbersOfComments = 1000;
+
+        when(statisticsMock.commentsCount()).thenReturn(numbersOfComments);
+        when(statisticsMock.usersNames()).thenReturn(usersNamesList);
+
+        CalculateStatistics calcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        calcStatistics.calculateAdvStatistics(statisticsMock);
+        double averageCommentsByUser = calcStatistics.getAverageCommentsByUser();
+
+        //Then
+        Assert.assertEquals(0.006, averageCommentsByUser , 0.000001);
+    }
+    @Test
+    public void testCalculateStatisticsWithaverageCommentsByUserZeroMock() {
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+        List<String> usersNamesList = new ArrayList<String>();
+        usersNamesList.add("Heinrich Otto Abetz");
+        usersNamesList.add("Milan Babić");
+        usersNamesList.add("Pietro Caruso");
+        usersNamesList.add("Kurt Daluege ");
+        usersNamesList.add("Adolf Eichmann ");
+        usersNamesList.add("Miroslav Filipović");
+        int numbersOfComments = 0;
+
+        when(statisticsMock.commentsCount()).thenReturn(numbersOfComments);
+        when(statisticsMock.usersNames()).thenReturn(usersNamesList);
+
+        CalculateStatistics calcStatistics = new CalculateStatistics(statisticsMock);
+
+        //When
+        calcStatistics.calculateAdvStatistics(statisticsMock);
+        double averageCommentsByUser = calcStatistics.getAverageCommentsByUser();
+
+        //Then
+        Assert.assertEquals(0.0, averageCommentsByUser , 0.000001);
+    }
+    @Test
     public void testCalculateStatisticsWithAveragePostsByUserPostZeroMock() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
