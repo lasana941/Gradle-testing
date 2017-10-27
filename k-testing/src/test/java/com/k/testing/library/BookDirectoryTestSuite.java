@@ -19,9 +19,11 @@ public class BookDirectoryTestSuite {
     @Test
     public void testListBooksInHandsOfUserZero(){
         //gdy użytkownik nie ma wypożyczonych żadnych książek,
+        
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         LibraryUser libraryUser = new LibraryUser("Russell","Kirk" ,"04291994" );
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        // List<Book> resultListOfBooks = new ArrayList<>();
         List<Book> resultListOfBooks = new ArrayList<Book>();
 
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
@@ -39,6 +41,8 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         LibraryUser libraryUser = new LibraryUser("Russell","Kirk" ,"04291994" );
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        
+        // List<Book> resultListOfBooks = new ArrayList<>(); nizej tez
         List<Book> resultListOfBooks = new ArrayList<Book>();
         resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
 
@@ -58,6 +62,7 @@ public class BookDirectoryTestSuite {
         LibraryUser libraryUser = new LibraryUser("Russell","Kirk" ,"04291994" );
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBooks = new ArrayList<Book>();
+        // w sumie tu w pętli mogles, zawsze to kilka linijek mniej
         resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
         resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
         resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
@@ -84,6 +89,8 @@ public class BookDirectoryTestSuite {
         Book book2 = new Book("Secretaries and Directors", "Dilbert Michigan", 2012);
         Book book3 = new Book("Secret life of programmers", "Steve Wolkowitz", 2016);
         Book book4 = new Book("Secrets of Java", "Ian Tenewitch", 2010);
+        // krocej
+        // resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008)); itd, bo nie potrzebujesz referencji do book1, book2 itd..
         resultListOfBooks.add(book1);
         resultListOfBooks.add(book2);
         resultListOfBooks.add(book3);
@@ -100,6 +107,8 @@ public class BookDirectoryTestSuite {
     private List<Book> generateListOfNBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<Book>();
         for(int n = 1; n <= booksQuantity; n++){
+            // nie potrzebujesz referencji do theBook
+            // resultList.add(new Book("Title " + n, "Author " + n, 1970 + n));
             Book theBook = new Book("Title " + n, "Author " + n, 1970 + n);
             resultList.add(theBook);
         }
