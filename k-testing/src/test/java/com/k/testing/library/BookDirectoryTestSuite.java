@@ -14,6 +14,46 @@ import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 
 public class BookDirectoryTestSuite {
+
+    //Przetestuj tę metodę w różnych scenariuszach: "listBooksInHandsOf(LibraryUser libraryUser)"
+    @Test
+    public void testListBooksInHandsOfUserZero(){
+        //gdy użytkownik nie ma wypożyczonych żadnych książek,
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser libraryUser = new LibraryUser("Russell","Kirk" ,"04291994" );
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOfBooks = new ArrayList<Book>();
+
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
+                .thenReturn(resultListOfBooks);
+
+        // When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        // Then
+        assertEquals(0, theListOfBooks.size());
+    }
+    @Test
+    public void testListBooksInHandsOfUserOne(){
+        //gdy ma wypożyczoną jedną książkę,
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser libraryUser = new LibraryUser("Russell","Kirk" ,"04291994" );
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOfBooks = new ArrayList<Book>();
+        resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
+        int amountOfBooks
+        when(libraryDatabaseMock.returnBooks(libraryUser))
+                .thenReturn(resultListOfBooks);
+
+        // When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        // Then
+        assertEquals(1, theListOfBooks.size());
+    }
+
+    //gdy ma wypożyczone 5 książek.
+
     @Test
     public void testListBooksWithConditionsReturnList() {
         //ten test sprawdzi czy lista książek spełniających warunek wyszukiwania jest poprawnie zwracana
