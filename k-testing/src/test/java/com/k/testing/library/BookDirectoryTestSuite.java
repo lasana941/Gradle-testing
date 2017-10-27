@@ -41,8 +41,8 @@ public class BookDirectoryTestSuite {
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBooks = new ArrayList<Book>();
         resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
-        int amountOfBooks
-        when(libraryDatabaseMock.returnBooks(libraryUser))
+
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
                 .thenReturn(resultListOfBooks);
 
         // When
@@ -51,9 +51,28 @@ public class BookDirectoryTestSuite {
         // Then
         assertEquals(1, theListOfBooks.size());
     }
+    @Test
+    public void testListBooksInHandsOfUserFive(){
+        //gdy ma wypożyczone 5 książek.
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser libraryUser = new LibraryUser("Russell","Kirk" ,"04291994" );
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOfBooks = new ArrayList<Book>();
+        resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
+        resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
+        resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
+        resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
+        resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
 
-    //gdy ma wypożyczone 5 książek.
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
+                .thenReturn(resultListOfBooks);
 
+        // When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        // Then
+        assertEquals(5, theListOfBooks.size());
+    }
     @Test
     public void testListBooksWithConditionsReturnList() {
         //ten test sprawdzi czy lista książek spełniających warunek wyszukiwania jest poprawnie zwracana
